@@ -18,13 +18,14 @@
 		},
 		{
 			link: 'https://github.com/keverza/keverza-nutritionGen',
+			linkGit: 'https://github.com/keverza/keverza-nutritionGen',
 			imgGit: 'Nutritional value calculator',
 			img: 'https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-01.jpg',
 			title: 'Nutritional value generator'
 		},
 		{
-			link: 'https://keverza-svelte.vercel.app/',
-			linkGit: '',
+			link: 'https://www.iivo.dev/',
+			linkGit: 'https://www.iivo.dev/',
 			imgAlt: 'Walnut card tray with white powder coated steel divider and 3 punchout holes.',
 			img: 'https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-01.jpg',
 			title: 'Portfolio site'

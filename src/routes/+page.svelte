@@ -2,6 +2,7 @@
 	import Hero from '$lib/Hero.svelte';
 	import Projects from '$lib/Projects.svelte';
 	import AboutMe from '$lib/AboutMe.svelte';
+	import Contact from '$lib/Contact.svelte';
 </script>
 
 <svelte:head>
@@ -14,4 +15,5 @@
 	<Hero />
 	<AboutMe />
 	<Projects />
+	<Contact />
 </div>
