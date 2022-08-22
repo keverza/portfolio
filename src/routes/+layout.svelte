@@ -1,21 +1,16 @@
 <script>
 	import Header from '$lib/header/Header.svelte';
-	import '../normalize.css';
-	import '../app.css';
-
-	const year = new Date().getFullYear();
+	import '../app.postcss';
 </script>
 
-<Header />
+<header />
 
 <main>
 	<slot />
 </main>
 
 <footer>
-	<p class="">
-		Designed by and all rights reserved - Ignas Ivonis {year}.
-	</p>
+	<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
 </footer>
 
 <style>
