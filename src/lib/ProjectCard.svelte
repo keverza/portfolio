@@ -19,7 +19,7 @@
 			class="bg-gray-100 rounded border border-white hover:border-orange-500 cursor-pointer "
 		/></a
 	>
-	<h2 class="uppercase text-center text-gray-500">{title}</h2>
+	<h2 class="uppercase text-center text-gray-500 truncate ">{title}</h2>
 	<div class="flex flex-row justify-center items-center gap-3 mt-2">
 		{#if link === ''}
 			<a href={link}><IconLinkRemoved /></a>

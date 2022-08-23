@@ -26,8 +26,8 @@
 		{
 			link: 'https://www.iivo.dev/',
 			linkGit: 'https://www.iivo.dev/',
-			imgAlt: 'Walnut card tray with white powder coated steel divider and 3 punchout holes.',
-			img: 'https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-01.jpg',
+			imgAlt: 'portfolio',
+			img: 'mstile-310x310.png',
 			title: 'Portfolio site'
 		}
 	];
