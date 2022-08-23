@@ -6,9 +6,9 @@
 			Who I am
 		</h2>
 		<p class="mt-4 text-gray-500">
-			Front End Developer with experience building Vanilla and React.js websites. With a background
-			in both UI/UX and low-level programming, I can develop websites from scratch and raise them
-			into modern, responsive, user-friendly, and dependable web experiences.
+			Front End Developer with experience building Vanilla and Svelte websites. With a background in
+			both UI/UX and low-level programming, I can develop websites from scratch and raise them into
+			modern, responsive, user-friendly, and dependable web experiences.
 		</p>
 	</div>
 </div>

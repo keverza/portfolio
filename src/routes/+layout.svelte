@@ -11,7 +11,7 @@
 	<slot />
 </main>
 
-<footer class="flex justify-center items-center">
+<footer class="flex justify-center items-center bg-white pt-4 ">
 	<p>Copyright and designed by <a href="https://github.com/keverza">Ignas Ivonis</a> {year}</p>
 </footer>
 

@@ -1,5 +1,6 @@
 <script>
 	import IconGithub from '$icons/IconGithub.svelte';
+	import IconLinkedin from '$icons/IconLinkedin.svelte';
 	import IconMail from '$icons/IconMail.svelte';
 	import IconDown from '$icons/IconDown.svelte';
 
@@ -21,22 +22,30 @@
 		>
 			Ignas Ivonis | <span class="font-light">Full stack web developer.</span>
 		</h2>
-		<ul class="flex justify-center items-center gap-3 mt-8">
+		<ul class="flex justify-center items-center gap-3 mt-8 delay-100">
 			<li
 				on:focus={() => handleMouseOver('ignas@mailbox.com')}
 				on:mouseover={() => handleMouseOver('ignas@mailbox.com')}
 				on:blur={handleMouseOut}
 				on:mouseout={handleMouseOut}
 			>
-				<a href=""><IconMail /></a>
+				<a href="mailto:ignas@mailbox.org"><IconMail /></a>
 			</li>
 			<li
-				on:focus={() => handleMouseOver('github/keverza')}
-				on:mouseover={() => handleMouseOver('github/keverza')}
+				on:focus={() => handleMouseOver('github.com/keverza')}
+				on:mouseover={() => handleMouseOver('github.com/keverza')}
 				on:blur={handleMouseOut}
 				on:mouseout={handleMouseOut}
 			>
-				<a href=""><IconGithub /></a>
+				<a href="https://github.com/keverza"><IconGithub /></a>
+			</li>
+			<li
+				on:focus={() => handleMouseOver('linkedin.com/in/iiivo')}
+				on:mouseover={() => handleMouseOver('linkedin.com/in/iiivo')}
+				on:blur={handleMouseOut}
+				on:mouseout={handleMouseOut}
+			>
+				<a href="https://lt.linkedin.com/in/iiivo"><IconLinkedin /></a>
 			</li>
 		</ul>
 		<p class="h-8 flex  justify-center items-center">{hover}</p>

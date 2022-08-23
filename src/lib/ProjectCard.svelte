@@ -1,6 +1,7 @@
 <script>
 	import IconGithub from '$icons/IconGithub.svelte';
-	import IconWww from '$icons/IconWWW.svelte';
+	import IconLink from '$icons/IconLink.svelte';
+	import IconLinkRemoved from '$icons/IconLinkRemoved.svelte';
 	import IconWWW from '$icons/IconWWW.svelte';
 
 	export let link;
@@ -20,7 +21,12 @@
 	>
 	<h2 class="uppercase text-center text-gray-500">{title}</h2>
 	<div class="flex flex-row justify-center items-center gap-3 mt-2">
-		<a href={link}><IconWWW /></a>
+		{#if link === ''}
+			<a href={link}><IconLinkRemoved /></a>
+		{:else}
+			<a href={link}><IconLink /></a>
+		{/if}
+
 		<a href={linkGit}><IconGithub /></a>
 	</div>
 </article>
