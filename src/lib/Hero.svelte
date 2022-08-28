@@ -3,6 +3,7 @@
 	import IconLinkedin from '$icons/IconLinkedin.svelte';
 	import IconMail from '$icons/IconMail.svelte';
 	import IconDown from '$icons/IconDown.svelte';
+	import IconCode from '$icons/IconCode.svelte';
 
 	let hover = ' ';
 	const handleMouseOver = (e) => {
@@ -14,7 +15,7 @@
 </script>
 
 <div
-	class="max-w-2xl mx-auto py-24 px-4 grid items-center grid-cols-1 gap-y-16 gap-x-8 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8 lg:grid-cols-2"
+	class="max-w-2xl mx-auto py-24 px-4 grid items-center grid-cols-1 gap-y-16 gap-x-8 sm:px-6 sm:py-32  lg:px-8 "
 >
 	<div>
 		<h2
@@ -46,6 +47,14 @@
 				on:mouseout={handleMouseOut}
 			>
 				<a href="https://lt.linkedin.com/in/iiivo"><IconLinkedin /></a>
+			</li>
+			<li
+				on:focus={() => handleMouseOver('codewars.com/users/keverza')}
+				on:mouseover={() => handleMouseOver('codewars.com/users/keverza')}
+				on:blur={handleMouseOut}
+				on:mouseout={handleMouseOut}
+			>
+				<a href="https://www.codewars.com/users/keverza"><IconCode /></a>
 			</li>
 		</ul>
 		<p class="h-8 flex  justify-center items-center">{hover}</p>
