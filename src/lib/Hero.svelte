@@ -5,6 +5,8 @@
 	import IconDown from '$icons/IconDown.svelte';
 	import IconCode from '$icons/IconCode.svelte';
 
+	export let lang;
+
 	let hover = ' ';
 	const handleMouseOver = (e) => {
 		hover = e;

@@ -1,5 +1,6 @@
 <script>
 	import ProjectCard from '$lib//ProjectCard.svelte';
+	export let lang;
 
 	const projects = [
 		{

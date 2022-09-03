@@ -3,6 +3,10 @@
 	import Projects from '$lib/Projects.svelte';
 	import AboutMe from '$lib/AboutMe.svelte';
 	import Contact from '$lib/Contact.svelte';
+
+	import { page } from '$app/stores';
+
+	let lang = $page.routeId;
 </script>
 
 <svelte:head>
@@ -12,8 +16,8 @@
 </svelte:head>
 
 <div class="bg-white max-w-2xl mx-auto">
-	<Hero />
-	<AboutMe />
-	<Projects />
-	<Contact />
+	<Hero {lang} />
+	<AboutMe {lang} />
+	<Projects {lang} />
+	<Contact {lang} />
 </div>

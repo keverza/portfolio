@@ -1,6 +1,5 @@
 <script>
-	import Header from '$lib/header/Header.svelte';
-	import '../app.postcss';
+	import '../../app.postcss';
 
 	const year = new Date().getFullYear();
 </script>

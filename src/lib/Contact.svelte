@@ -1,12 +1,21 @@
+<script>
+	export /**
+	 * @type {string}
+	 */
+	let lang;
+</script>
+
 <div
 	class="max-w-2xl mx-auto py-24 px-4 grid items-center grid-cols-1 gap-y-16 gap-x-8 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8 "
 >
 	<div>
 		<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:tracking-tight sm:text-4xl">
-			Contact me
+			{lang === 'en' ? 'Contact me' : 'Užklausos forma'}
 		</h2>
 		<p class="mt-4 text-gray-500">
-			You can contact me via <strong>ignas[at]mailbox.org</strong> or you can simply fill in this form.
+			{lang === 'en'
+				? 'You can contact me via ignas[at]mailbox.org or you can simply fill in this form.'
+				: 'Galite susiekti parašę į ignas[at]mailbox.org arba tiesiog užpildykite žemiau esančią formą.'}
 		</p>
 	</div>
 
@@ -21,13 +30,13 @@
 						<!-- <input type="hidden" name="redirectTo" value="https://example.com/contact/success"> -->
 						<div class="col-span-3 sm:col-span-2">
 							<label for="email" class="block text-sm font-medium text-gray-700">
-								Your email:
+								{lang === 'en' ? 'Your email:' : 'Jūsų e-paštas:'}
 							</label>
 							<div class="mt-1 flex rounded-md shadow-sm">
 								<span
 									class="inline-flex items-center px-3 rounded-l-md  bg-gray-50 text-gray-500 text-sm"
 								>
-									from:
+									{lang === 'en' ? 'from:' : 'nuo:'}
 								</span>
 								<input
 									type="text"
@@ -41,9 +50,13 @@
 					</div>
 
 					<div>
-						<label for="message" class="block text-sm font-medium text-gray-700"> Message: </label>
+						<label for="message" class="block text-sm font-medium text-gray-700">
+							{lang === 'en' ? 'Message:' : 'Tekstas:'}
+						</label>
 						<p class="mt-0 text-sm text-gray-400 italic">
-							Please include brief description of project you would like to complete.
+							{lang === 'en'
+								? 'Please include brief description of project you would like to complete.'
+								: 'Trumpas užduoties aprašas.'}
 						</p>
 						<div class="mt-1">
 							<textarea
@@ -60,7 +73,8 @@
 					<button
 						type="submit"
 						class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-						>Send</button
+					>
+						{lang === 'en' ? 'Send' : 'Siųsti'}</button
 					>
 				</div>
 			</div>

@@ -4,6 +4,7 @@ My portfolio site to showcase projects
 used packages:
 https://www.staticforms.xyz/
 tailwind
+sveltekit
 
 # create-svelte
 
