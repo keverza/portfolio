@@ -1,8 +1,10 @@
+# Link to project [iivo.dev](https://www.iivo.dev)
+
 # portfolio site in svelte
 
 My portfolio site to showcase projects
 used packages:
-https://www.staticforms.xyz/
+https://www.staticforms.xyz/ //removed due to spam
 tailwind
 sveltekit
 
