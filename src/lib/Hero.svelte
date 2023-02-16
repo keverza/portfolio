@@ -27,12 +27,12 @@
 		</h2>
 		<ul class="flex justify-center items-center gap-3 mt-8 delay-100">
 			<li
-				on:focus={() => handleMouseOver('ignas@mailbox.com')}
-				on:mouseover={() => handleMouseOver('ignas@mailbox.com')}
+				on:focus={() => handleMouseOver('ignas@iivo.dev')}
+				on:mouseover={() => handleMouseOver('ignas@iivo.dev')}
 				on:blur={handleMouseOut}
 				on:mouseout={handleMouseOut}
 			>
-				<a href="mailto:ignas@mailbox.org"><IconMail /></a>
+				<a href="mailto:ignas@iivo.dev"><IconMail /></a>
 			</li>
 			<li
 				on:focus={() => handleMouseOver('github.com/keverza')}

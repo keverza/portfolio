@@ -7,7 +7,7 @@
 	let lang;
 
 	// const encMail = 'aWduYXNAbWFpbGJveC5vcmc=';
-	const encMail = 'a2V2ZXJ6YW5AZ21haWwuY29t';
+	const encMail = 'aWduYXNAaWl2by5kZXY=';
 	onMount(() => {
 		const mailLink = document.querySelector('.contact');
 		mailLink?.setAttribute('href', 'mailto:'.concat(atob(encMail)));
