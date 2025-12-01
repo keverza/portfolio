@@ -1,0 +1,817 @@
+/* ==========================================================================
+   1. RESET & BASE
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+html {
+  margin: 0 0 0 calc(100vw - 100%);
+  -webkit-text-size-adjust: 100%;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+/* ==========================================================================
+   2. CSS VARIABLES (LIGHT THEME)
+   ========================================================================== */
+
+:root {
+  /* Spacing */
+  --lh: 1.5em;
+
+  /* Colors */
+  --textLight: #555;
+  --textColor: #000;
+  --bgColor: #eee;
+  --borderColor: #949494;
+  --highlightColor: #e5e5e5;
+  --selectionBg: #ddd;
+  --selectionColor: #000;
+  --badgeColor: #555;
+}
+
+::selection {
+  background: var(--selectionBg);
+  color: var(--selectionColor);
+}
+
+/* ==========================================================================
+   3. TYPOGRAPHY
+   ========================================================================== */
+
+body {
+  font: 1em / var(--lh) monospace;
+  background: var(--bgColor);
+  color: var(--textColor);
+  padding: 16vh 2em 0;
+  display: grid;
+  grid: 1fr / minmax(auto, 64ch);
+  justify-content: center;
+  height: 100%;
+}
+
+h1,
+h2,
+p,
+pre,
+blockquote,
+article {
+  margin-bottom: var(--lh);
+}
+
+h2 {
+  margin-top: calc(var(--lh) * 2);
+}
+
+em {
+  font-style: italic;
+}
+
+time {
+  color: var(--textLight);
+}
+
+span {
+  color: var(--textLight);
+}
+
+/* ==========================================================================
+   4. LAYOUT ELEMENTS
+   ========================================================================== */
+
+/* Links */
+a {
+  display: inline-block;
+  padding: 0.16666em;
+  margin-left: -0.16666em;
+  text-decoration: none;
+}
+
+a.inline {
+  margin: 0;
+  padding: 0;
+}
+
+a i {
+  border-bottom: 1px dotted;
+}
+
+a:active i {
+  border: none;
+}
+
+/* Paragraph links - enhanced visibility */
+p a {
+  padding: 0 0.25em;
+  border-radius: 2px;
+  text-decoration-style: solid;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--textColor);
+}
+
+/* Lists */
+ul,
+ol {
+  margin: 0 0 var(--lh) 2ch;
+}
+
+li {
+  text-indent: -2ch;
+}
+
+li:before {
+  content: '* ';
+}
+
+/* Images */
+img {
+  width: 100%;
+  margin: var(--lh) 0;
+}
+
+/* Images inside articles - breakout effect */
+article img {
+  width: calc(100% + 8em);
+  margin-left: -4em;
+  margin-right: -4em;
+  max-width: calc(100vw - 4em);
+}
+
+img,
+pre,
+blockquote {
+  border-radius: 3px;
+}
+
+/* Horizontal rule */
+hr {
+  border: none;
+  background-color: var(--borderColor);
+  height: 1px;
+  width: 100%;
+  display: block;
+  margin: calc(var(--lh) * 2) 0;
+}
+
+/* Code blocks and blockquotes */
+pre,
+blockquote {
+  background: var(--highlightColor);
+  border: 1px solid var(--borderColor);
+  padding: calc(var(--lh) / 2);
+  white-space: pre-wrap;
+  overflow: auto;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+pre ::selection {
+  background: var(--highlightColor);
+  color: var(--bgColor);
+}
+
+/* Footer */
+footer {
+  padding: calc(var(--lh) * 2) 0 8vh;
+}
+
+footer p {
+  margin-bottom: 0;
+}
+
+footer nav {
+  display: flex;
+  gap: 1em;
+}
+
+/* ==========================================================================
+   5. COMPONENTS
+   ========================================================================== */
+
+.post-list {
+  margin-bottom: 1em;
+}
+
+/* 5.1 Utilities */
+.highlight {
+  background: var(--highlightColor);
+  padding: 0 3px;
+}
+
+.strike,
+.strike a {
+  text-decoration: line-through;
+}
+
+.about p {
+  max-width: 36ch;
+}
+
+/* 5.2 Post List */
+.post-list .post-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1em;
+  margin-bottom: calc(var(--lh) / 2);
+}
+
+.post-list .post-info {
+  display: flex;
+  gap: 1ch;
+  flex: 1;
+  min-width: 0;
+  align-items: baseline;
+}
+
+.post-list .post-info a {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.post-list .badge {
+  background: var(--highlightColor);
+  border: 1px solid var(--borderColor);
+  padding: 0 0.5em;
+  border-radius: 3px;
+  font-size: 0.875em;
+  color: var(--badgeColor);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* 5.3 Audio Player */
+.audio-player {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  padding: calc(var(--lh) / 2);
+  border: 1px solid var(--borderColor);
+  border-radius: 3px;
+  background: var(--highlightColor);
+  margin: var(--lh) 0;
+}
+
+.audio-play-btn {
+  background: transparent;
+  border: 1px solid var(--borderColor);
+  width: 2em;
+  height: 2em;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875em;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.audio-play-btn:hover {
+  background: var(--borderColor);
+}
+
+.audio-play-btn:active {
+  transform: scale(0.95);
+}
+
+.audio-info {
+  font-size: 0.875em;
+  color: var(--textLight);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.audio-progress {
+  flex: 1;
+  height: 4px;
+  background: var(--borderColor);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.audio-progress-bar {
+  height: 100%;
+  background: var(--textColor);
+  width: 0%;
+  border-radius: 2px;
+  transition: width 0.1s linear;
+}
+
+/* 5.4 Video Players */
+.youtube-embed {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  margin: var(--lh) 0;
+  border-radius: 3px;
+  border: 1px solid var(--borderColor);
+}
+
+.youtube-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-player {
+  margin: var(--lh) 0;
+  border-radius: 3px;
+  border: 1px solid var(--borderColor);
+  overflow: hidden;
+}
+
+.video-player video {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #000;
+}
+
+/* Video players inside articles - breakout effect */
+article .youtube-embed,
+article .video-player {
+  width: calc(100% + 8em);
+  margin-left: -4em;
+  margin-right: -4em;
+  max-width: calc(100vw - 4em);
+}
+
+/* 5.5 Table of Contents */
+.table-of-contents {
+  position: fixed;
+  left: 2em;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 200px;
+  font-size: 0.875em;
+  z-index: 100;
+}
+
+.toc-title {
+  font-weight: bold;
+  margin-bottom: calc(var(--lh) / 2);
+  color: var(--textColor);
+}
+
+#toc-list {
+  margin: 0;
+  list-style: none;
+}
+
+#toc-list li {
+  margin-bottom: 0.5em;
+  text-indent: 0;
+}
+
+#toc-list li:before {
+  content: '';
+}
+
+#toc-list a {
+  color: var(--textLight);
+  text-decoration: none;
+  display: block;
+  padding: 0.25em 0;
+  margin: 0;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.toc-dash {
+  display: inline-block;
+  transition: color 0.2s;
+  width: 2rem;
+  height: 1px;
+  background: var(--selectionBg);
+  transition: all .3s ease;
+}
+
+#toc-list a:hover .toc-dash {
+  width: 1rem;
+  background-color: var(--textColor);
+}
+
+.toc-tooltip {
+  position: absolute;
+  left: 1.2rem;
+  top: 0;
+  background: var(--highlightColor);
+  border: 1px solid var(--borderColor);
+  padding: 0.25em 0.5em;
+  border-radius: 3px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 1000;
+}
+
+#toc-list a:hover .toc-tooltip {
+  opacity: 1;
+}
+
+#toc-list a:hover .toc-dash {
+  color: var(--textColor);
+}
+
+/* Active state */
+#toc-list a.active .toc-dash {
+  color: var(--textColor);
+  font-weight: bold;
+  width: 1rem;
+  background-color: var(--textColor);
+}
+
+#toc-list a.active .toc-tooltip {
+  opacity: 1;
+}
+
+/* Indentation for heading levels */
+.toc-h3 {
+  padding-left: 1em;
+}
+
+.toc-h4 {
+  padding-left: 2em;
+}
+
+/* 5.6 CV / Currículo */
+article h3 {
+  margin-top: calc(var(--lh) * 2);
+  margin-bottom: calc(var(--lh) / 2);
+}
+
+article h3::before {
+  content: '# ';
+  color: var(--textLight);
+}
+
+/* Job title styling */
+article h3 + p strong {
+  display: block;
+  margin-bottom: calc(var(--lh) / 2);
+  color: var(--textColor);
+}
+
+/* Stack tags inline with tight spacing */
+article p strong + strong {
+  margin-top: calc(var(--lh) / 2);
+}
+
+/* Better spacing for education section */
+article h2 + p strong {
+  display: block;
+  margin-bottom: 0.25em;
+}
+
+/* 5.7 Gallery (Work Page) */
+.gallery-page {
+  padding: 4em 2em 2em;
+  display: block;
+}
+
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--lh) * 2);
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.gallery-container p {
+  background: var(--highlightColor);
+  border: 1px solid var(--borderColor);
+  border-radius: 3px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+  border: 1px solid var(--borderColor);
+  margin: 0;
+  display: block;
+  object-fit: cover;
+}
+
+.back-button {
+  position: fixed;
+  top: 2em;
+  left: 2em;
+  background: var(--bgColor);
+  border: 1px solid var(--borderColor);
+  padding: 0.5em 1em;
+  border-radius: 3px;
+  z-index: 1000;
+  transition: background 0.2s;
+}
+
+.back-button:hover {
+  background: var(--highlightColor);
+}
+
+/* ==========================================================================
+   6. MEDIA QUERIES - TABLET & SMALLER SCREENS
+   ========================================================================== */
+
+/* Hide TOC on smaller screens to avoid overlap */
+@media (max-width: 1200px) {
+  .table-of-contents {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   7. MEDIA QUERIES - MOBILE
+   ========================================================================== */
+
+@media (max-device-width: 600px) {
+  body {
+    padding-top: 2em;
+    justify-content: start;
+  }
+
+  footer {
+    padding-bottom: 2em;
+  }
+
+  pre {
+    max-width: calc(100vw - 4em);
+  }
+
+  a i {
+    border-color: var(--borderColor);
+  }
+
+  /* Breakout effect on mobile - more subtle */
+  article img,
+  article .youtube-embed,
+  article .video-player {
+    width: calc(100% + 2em);
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+
+  /* Hide table of contents on mobile */
+  .table-of-contents {
+    display: none;
+  }
+
+  /* Post list mobile */
+  .post-list .post-item {
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin-bottom: var(--lh);
+  }
+
+  .post-list .post-info {
+    flex-basis: 100%;
+    flex-direction: column;
+  }
+
+  .post-list .post-info a {
+    order: 0;
+  }
+
+  .post-list .post-info time {
+    order: 1;
+    display: block;
+    margin-bottom: 0.25em;
+  }
+
+  /* Gallery mobile */
+  .gallery-page {
+    padding-top: 2em;
+  }
+
+  .gallery-container p {
+    padding: 0;
+  }
+
+  .gallery-container img {
+    width: 100%;
+  }
+
+  .back-button {
+    top: 1em;
+    left: 1em;
+  }
+}
+
+
+/* ==========================================================================
+   8. MEDIA QUERIES - DARK MODE
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --textLight: #999;
+    --textColor: #e0e0e0;
+    --bgColor: #0d0d0d;
+    --borderColor: #2a2a2a;
+    --highlightColor: #1a1a1a;
+    --selectionBg: #333;
+    --selectionColor: #fff;
+    --badgeColor: #aaa;
+  }
+}
+
+/* ==========================================================================
+   9. MEDIA QUERIES - PRINT
+   ========================================================================== */
+
+@media print {
+  /* Page setup */
+  @page {
+    margin: 1.5cm;
+    size: A4;
+  }
+
+  /* Reset colors for print - keep it minimal */
+  * {
+    background: white !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Hide unnecessary elements */
+  .table-of-contents,
+  nav,
+  footer {
+    display: none !important;
+  }
+
+  /* Body - keep monospace font */
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: monospace !important;
+    font-size: 10pt;
+    line-height: 1.5;
+    max-width: 100%;
+  }
+
+  /* Headers - minimal style */
+  h1 {
+    font-size: 16pt;
+    font-weight: normal;
+    margin-bottom: 0.25em;
+    page-break-after: avoid;
+  }
+
+  h1 + p {
+    font-size: 10pt;
+    margin-bottom: 0.25em;
+    color: #000 !important;
+  }
+
+  h2 {
+    font-size: 10pt;
+    font-weight: normal;
+    margin-top: 1.5em;
+    margin-bottom: 0.75em;
+    page-break-after: avoid;
+  }
+
+  h2::before {
+    content: '## ';
+    color: #666 !important;
+  }
+
+  h3 {
+    font-size: 10pt;
+    font-weight: normal;
+    margin-top: 1em;
+    margin-bottom: 0.25em;
+    page-break-after: avoid;
+  }
+
+  h3::before {
+    content: '### ';
+    color: #666 !important;
+  }
+
+  /* Links - minimal */
+  a {
+    color: #000 !important;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
+
+  a[href^="http"] {
+    text-decoration: none;
+  }
+
+  /* Don't show URLs in print - keep it clean */
+  a[href^="http"]:after {
+    content: '';
+  }
+
+  /* Lists - keep bullet style */
+  ul {
+    margin: 0.5em 0 0.75em 0;
+    list-style: none;
+  }
+
+  li {
+    margin-bottom: 0.25em;
+    page-break-inside: avoid;
+    text-indent: 0;
+  }
+
+  li:before {
+    content: '* ';
+    color: #000 !important;
+  }
+
+  /* Paragraphs */
+  p {
+    margin-bottom: 0.5em;
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Strong/Bold - keep normal weight */
+  strong {
+    font-weight: bold;
+    color: #000 !important;
+  }
+
+  /* HR separators - minimal */
+  hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 1em 0;
+    background: transparent !important;
+  }
+
+  /* Avoid breaks */
+  h3,
+  h3 + p,
+  h3 + p + ul {
+    page-break-inside: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Compact spacing for print */
+  article h3 {
+    margin-top: 1em;
+    margin-bottom: 0.25em;
+  }
+
+  article h2 {
+    margin-top: 1.5em;
+    margin-bottom: 0.75em;
+  }
+
+  /* Job title */
+  article h3 + p strong {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5em;
+  }
+
+  /* Stack line */
+  article ul + p strong {
+    color: #666 !important;
+  }
+
+  /* Remove extra spacing */
+  body > *:first-child {
+    margin-top: 0 !important;
+  }
+
+  /* Contact info */
+  h1 + p + p {
+    margin-bottom: 1em;
+  }
+}
