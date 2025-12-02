@@ -1,4 +1,4 @@
-<article itemscope="" itemtype="https://schema.org/BlogPosting">
+<article itemtype="https://schema.org/BlogPosting">
 	<header><h1 itemprop="headline">Lorem ipsum dolor sit!</h1></header>
 	<p>-</p>
 	<div itemprop="articleBody">

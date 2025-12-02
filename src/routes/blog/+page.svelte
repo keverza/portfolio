@@ -3,9 +3,7 @@
 	const { posts } = data;
 </script>
 
-<h1>Welcome to Personal Page of mine</h1>
-<p>As you can see there is lot of interesting info here...</p>
-<p>... be carefull to not get lost</p>
+<h1>All posts</h1>
 
 <nav class="post-list">
 	{#each posts as post}
@@ -24,7 +22,3 @@
 		</div>
 	{/each}
 </nav>
-
-<p>
-	<a href="/blog/"><i>view all →</i></a>
-</p>

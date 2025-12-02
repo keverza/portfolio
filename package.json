@@ -26,9 +26,16 @@
 		"vite": "^6.0.0"
 	},
 	"engines": {
-    	"node": ">=18"
-  },
-    "overrides": {
-    	"cookie": "^0.7.0"
-  }
+		"node": ">=18"
+	},
+	"overrides": {
+		"cookie": "^0.7.0"
+	},
+	"dependencies": {
+		"@picocss/pico": "^2.1.1",
+		"rehype-autolink-headings": "^7.1.0",
+		"rehype-slug": "^6.0.0"
+		
+		
+	}
 }
