@@ -1,0 +1,301 @@
+/* =====================================================================
+   Pico-based overrides for your original stylesheet
+   Keep pico.min.css loaded BEFORE this file.
+   ===================================================================== */
+
+/* 1. RESET & BASE
+   Pico already provides a compact base. We only restore things you had
+   that Pico doesn't change, and set our design tokens.
+*/
+:root{
+  /* spacing / rhythm */
+  --lh: 1.5em;
+
+  /* color tokens (light theme defaults) */
+  --site-text-light: #555;
+  --site-text: #000;
+  --site-bg: #eee;
+  --site-border: #949494;
+  --site-highlight: #e5e5e5;
+  --site-selection-bg: #ddd;
+  --site-selection-color: #000;
+  --site-badge: #555;
+
+  /* small adjustments for Pico variables if you like (optional) */
+  --radius: 0.1875rem; /* ~3px */
+}
+
+/* keep selection look */
+::selection{
+  background: var(--site-selection-bg);
+  color: var(--site-selection-color);
+}
+
+/* 2. BODY / LAYOUT
+   Use Pico's .container for responsive centering; tweak type & rhythm.
+*/
+body {
+  font: 1em / var(--lh) monospace;
+  background: var(--site-bg);
+  color: var(--site-text);
+  padding: 16vh 2em 0;
+  min-height: 100vh;
+  /* Pico already sets sensible box-sizing; keep it consistent */
+  box-sizing: border-box;
+}
+
+/* container specific tweaks (if you use plain <main class="container">) */
+main.container {
+  display: grid;
+  grid-template-columns: minmax(auto, 64ch);
+  justify-content: center;
+  margin: 0 auto;
+}
+
+/* basic spacing for common elements */
+h1,h2,p,pre,blockquote,article {
+  margin-bottom: var(--lh);
+}
+h2 { margin-top: calc(var(--lh) * 2); }
+em { font-style: italic; }
+time, span { color: var(--site-text-light); }
+
+/* 3. Links
+   Pico styles anchors, but we reintroduce your inline patterns.
+*/
+a{ display:inline-block; padding:0.16666em; margin-left:-0.16666em; text-decoration:none; }
+a.inline{ margin:0; padding:0; }
+a i{ border-bottom:1px dotted; }
+a:active i{ border: none; }
+
+/* paragraph link enhanced look */
+p a{
+  padding: 0 0.25em;
+  border-radius: 2px;
+  text-decoration-style: solid;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--site-text);
+}
+
+/* lists */
+ul,ol { margin: 0 0 var(--lh) 2ch; list-style: none; }
+li { text-indent: -2ch; }
+li:before { content: '* '; }
+
+/* images */
+img{ width:100%; margin: var(--lh) 0; border-radius: var(--radius); display:block; }
+article img{
+  width: calc(100% + 8em);
+  margin-left: -4em;
+  margin-right: -4em;
+  max-width: calc(100vw - 4em);
+}
+
+/* hr */
+hr{
+  border:none;
+  background-color: var(--site-border);
+  height:1px;
+  margin: calc(var(--lh) * 2) 0;
+}
+
+/* pre, blockquote */
+pre, blockquote{
+  background: var(--site-highlight);
+  border: 1px solid var(--site-border);
+  padding: calc(var(--lh) / 2);
+  white-space: pre-wrap;
+  overflow:auto;
+  border-radius: var(--radius);
+}
+blockquote p{ margin:0; }
+pre ::selection{ background: var(--site-highlight); color: var(--site-bg); }
+
+/* footer */
+footer{
+  padding: calc(var(--lh) * 2) 0 8vh;
+}
+footer p{ margin-bottom: 0; }
+footer nav{ display:flex; gap:1em; }
+
+/* 4. COMPONENTS - small custom classes that Pico doesn't supply out-of-the-box */
+
+/* post list */
+.post-list { margin-bottom: 1em; }
+.post-list .post-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:1em;
+  margin-bottom: calc(var(--lh) / 2);
+}
+.post-list .post-info{
+  display:flex; gap:1ch; flex:1; min-width:0; align-items:baseline;
+}
+.post-list .post-info a{
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+
+/* badge (Pico has badges variants but using a small custom one is fine) */
+.badge{
+  background: var(--site-highlight);
+  border: 1px solid var(--site-border);
+  padding: 0 0.5em;
+  border-radius: 3px;
+  font-size: 0.875em;
+  color: var(--site-badge);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* audio player (minimal, semantic; Pico has forms/buttons styling) */
+.audio-player{
+  display:flex; align-items:center; gap:0.75em;
+  padding: calc(var(--lh)/2);
+  border:1px solid var(--site-border);
+  border-radius: var(--radius);
+  background: var(--site-highlight);
+  margin: var(--lh) 0;
+}
+.audio-play-btn{
+  background:transparent; border:1px solid var(--site-border);
+  width:2em; height:2em; border-radius:3px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  font-size:0.875em; flex-shrink:0; transition: background 0.2s;
+}
+.audio-play-btn:hover{ background: var(--site-border); }
+.audio-play-btn:active{ transform: scale(0.95); }
+.audio-info{ font-size:0.875em; color:var(--site-text-light); white-space:nowrap; flex-shrink:0; }
+.audio-progress{ flex:1; height:4px; background:var(--site-border); border-radius:2px; position:relative; overflow:hidden; cursor:pointer; }
+.audio-progress-bar{ height:100%; background:var(--site-text); width:0%; border-radius:2px; transition:width .1s linear; }
+
+/* video / youtube embedding */
+.youtube-embed{ position:relative; padding-bottom:56.25%; height:0; overflow:hidden; margin: var(--lh) 0; border-radius:var(--radius); border:1px solid var(--site-border); }
+.youtube-embed iframe{ position:absolute; top:0; left:0; width:100%; height:100%; }
+.video-player{ margin: var(--lh) 0; border-radius:var(--radius); border:1px solid var(--site-border); overflow:hidden; }
+.video-player video{ width:100%; height:auto; display:block; background:#000; }
+
+/* breakout effect for article media (same adjusted for mobile below) */
+article .youtube-embed, article .video-player { width: calc(100% + 8em); margin-left:-4em; margin-right:-4em; max-width: calc(100vw - 4em); }
+
+/* table of contents (fixed) */
+.table-of-contents{
+  position: fixed; left:2em; top:50%; transform:translateY(-50%);
+  max-width:200px; font-size:0.875em; z-index:100;
+}
+.toc-title{ font-weight:bold; margin-bottom: calc(var(--lh)/2); color: var(--site-text); }
+#toc-list { margin:0; list-style:none; }
+#toc-list li { margin-bottom:0.5em; text-indent:0; }
+#toc-list a{ color: var(--site-text-light); text-decoration:none; display:block; padding:0.25em 0; margin:0; position:relative; transition: all .2s; }
+.toc-dash{ display:inline-block; width:2rem; height:1px; background: var(--site-selection-bg); transition: all .3s ease; }
+#toc-list a:hover .toc-dash{ width:1rem; background-color: var(--site-text); }
+.toc-tooltip{ position:absolute; left:1.2rem; top:0; background: var(--site-highlight); border:1px solid var(--site-border); padding:0.25em .5em; border-radius:3px; white-space:nowrap; opacity:0; pointer-events:none; transition: opacity .2s; z-index:1000; }
+#toc-list a:hover .toc-tooltip{ opacity:1; }
+#toc-list a.active .toc-dash{ color: var(--site-text); width:1rem; background-color: var(--site-text); font-weight:bold; }
+#toc-list a.active .toc-tooltip{ opacity:1; }
+.toc-h3{ padding-left:1em; }
+.toc-h4{ padding-left:2em; }
+
+/* CV / article headings */
+article h3{ margin-top: calc(var(--lh) * 2); margin-bottom: calc(var(--lh) / 2); }
+article h3::before{ content: '# '; color: var(--site-text-light); }
+article h3 + p strong{ display:block; margin-bottom: calc(var(--lh) / 2); color: var(--site-text); }
+
+/* gallery */
+.gallery-page{ padding:4em 2em 2em; display:block; }
+.gallery-container{ display:flex; flex-direction:column; gap: calc(var(--lh) * 2); max-width:100%; margin:0 auto; }
+.gallery-container p{ background: var(--site-highlight); border:1px solid var(--site-border); border-radius:var(--radius); padding:0; margin:0; display:flex; align-items:center; justify-content:center; }
+.gallery-container img{ width:100%; height:auto; border-radius:var(--radius); border:1px solid var(--site-border); margin:0; display:block; object-fit:cover; }
+
+/* back button */
+.back-button{
+  position: fixed; top:2em; left:2em; background: var(--site-bg);
+  border:1px solid var(--site-border); padding:.5em 1em; border-radius:var(--radius); z-index:1000; transition: background .2s;
+}
+.back-button:hover{ background: var(--site-highlight); }
+
+/* =====================================================================
+   5. MEDIA QUERIES (tablet/mobile/dark/print)
+   Keep same breakpoints & behaviour as your original CSS
+   ===================================================================== */
+
+/* Hide TOC at narrower widths */
+@media (max-width: 1200px){
+  .table-of-contents{ display:none; }
+}
+
+/* Mobile / small devices */
+@media (max-device-width: 600px){
+  body{ padding-top:2em; justify-content:start; }
+  footer{ padding-bottom:2em; }
+  pre{ max-width: calc(100vw - 4em); }
+  a i{ border-color: var(--site-border); }
+
+  /* subtle breakout on mobile */
+  article img, article .youtube-embed, article .video-player{
+    width: calc(100% + 2em);
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+
+  .table-of-contents{ display:none; }
+
+  /* post list mobile adjustments */
+  .post-list .post-item{ flex-wrap:wrap; gap:.5em; margin-bottom: var(--lh); }
+  .post-list .post-info{ flex-basis:100%; flex-direction:column; }
+  .post-list .post-info a{ order:0; }
+  .post-list .post-info time{ order:1; display:block; margin-bottom:.25em; }
+
+  .gallery-page{ padding-top:2em; }
+  .gallery-container p{ padding:0; }
+  .gallery-container img{ width:100%; }
+
+  .back-button{ top:1em; left:1em; }
+}
+
+/* Dark mode (follow user's original tokens) */
+@media (prefers-color-scheme: dark){
+  :root{
+    --site-text-light: #999;
+    --site-text: #e0e0e0;
+    --site-bg: #0d0d0d;
+    --site-border: #2a2a2a;
+    --site-highlight: #1a1a1a;
+    --site-selection-bg: #333;
+    --site-selection-color: #fff;
+    --site-badge: #aaa;
+  }
+
+  /* Also set Pico's background/text vars if you prefer */
+  /* --bg: var(--site-bg);
+     --text: var(--site-text); */
+}
+
+/* Print adjustments (keeps your original print behaviour) */
+@media print{
+  @page{ margin:1.5cm; size:A4; }
+  *{ background:white !important; color:#000 !important; box-shadow:none !important; text-shadow:none !important; }
+  .table-of-contents, nav, footer{ display:none !important; }
+  body{ padding:0; margin:0; font-family: monospace !important; font-size:10pt; line-height:1.5; max-width:100%; }
+  h1{ font-size:16pt; font-weight:normal; margin-bottom:.25em; page-break-after:avoid; }
+  h1 + p{ font-size:10pt; margin-bottom:.25em; color:#000 !important; }
+  h2{ font-size:10pt; font-weight:normal; margin-top:1.5em; margin-bottom:.75em; page-break-after:avoid; }
+  h2::before{ content: '## '; color: #666 !important; }
+  h3{ font-size:10pt; font-weight:normal; margin-top:1em; margin-bottom:.25em; page-break-after:avoid; }
+  h3::before{ content: '### '; color: #666 !important; }
+  a{ color:#000 !important; text-decoration:none; padding:0; margin:0; border:none; }
+  a[href^="http"]:after{ content: ''; } /* hides URLs */
+  ul{ margin:.5em 0 .75em 0; list-style:none; }
+  li{ margin-bottom:.25em; page-break-inside:avoid; text-indent:0; }
+  li:before{ content:'* '; color:#000 !important; }
+  p{ margin-bottom:.5em; orphans:3; widows:3; }
+  strong{ font-weight:bold; color:#000 !important; }
+  hr{ border:none; border-top:1px solid #ddd; margin:1em 0; background:transparent !important; }
+  article h3{ margin-top:1em; margin-bottom:.25em; }
+  article h2{ margin-top:1.5em; margin-bottom:.75em; }
+  article h3 + p strong{ font-weight:bold; display:block; margin-bottom:.5em; }
+  article ul + p strong{ color:#666 !important; }
+  body > *:first-child{ margin-top:0 !important; }
+  h1 + p + p { margin-bottom: 1em; } /* contact info */
+}
