@@ -1,7 +1,7 @@
 ---
 title: 'Building a Table of Contents in SvelteKit'
 date: '2025-01-10'
-tag: ['sveltekit', 'toc', 'mdsvex']
+tag: ['sveltekit']
 ---
 
 # Building a Table of Contents in SvelteKit
@@ -45,8 +45,7 @@ To support the TOC component, your mdsvex config should use:
 
 These ensure headings receive IDs like:
 
-<h2 id="installing-mdsvex">Installing mdsvex</h2> ```
-Creating the TOC Component
+### Creating the TOC Component
 
 The TOC component scans the container (e.g. #post) and generates a list of links.
 Highlighting Active Headings
@@ -55,12 +54,6 @@ When scrolling, the TOC updates the “active” link using IntersectionObserver
 Adding the Component to Your Blog Layout
 
 Finally, your [slug]/+page.svelte may look like this:
-
-<TableOfContents containerSelector="#post" />
-
-<article id="post">
-    <Post />
-</article>
 
 Conclusion
 

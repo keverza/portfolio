@@ -1,24 +1,14 @@
 <script>
 	import TableOfContents from '$lib/components/TableOfContents.svelte';
+
+	// 'data' comes from the +page.ts return object
 	export let data;
-
-	let Post = null;
-	const file = `/src/lib/content/blog/${data.slug}.md`;
-	const modules = import.meta.glob('$lib/content/blog/*.md');
-
-	modules[file]().then((mod) => {
-		Post = mod.default;
-	});
 </script>
 
 <div id="blog-layout">
 	<TableOfContents containerSelector="#post" />
 
 	<article id="post">
-		{#if Post}
-			<Post />
-		{:else}
-			<p>Loading…</p>
-		{/if}
+		<svelte:component this={data.content} />
 	</article>
 </div>
