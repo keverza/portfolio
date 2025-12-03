@@ -1,3 +1,12 @@
+---
+title: 'Your Post Title'
+date: '2024-01-01'
+categories:
+  - css
+  - web-development
+excerpt: 'Post description'
+---
+
 # SvelteKit static blog starter
 
 This starter contains everything you need to get up and running with
