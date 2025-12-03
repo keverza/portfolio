@@ -1,7 +1,22 @@
+<script>
+	import { siteAuthor } from '$lib/config';
+	import NavItems from './NavItems.svelte';
+</script>
+
 <footer>
 	<nav>
-		<a href="/about"><i>About</i></a
-		><a rel="noopener noreferrer" href="https://www.iivo.dev" target="_blank"><i>Home</i></a
-		><a href="/work"><i>Works</i></a>
+		<ul>
+			<li>
+				<a href="/api/rss.xml" data-sveltekit-reload>RSS</a>
+			</li>
+			<li>
+				<a href="/">Home</a>
+			</li>
+		</ul>
 	</nav>
+	<nav>
+		<NavItems />
+	</nav>
+
+	<p>&copy;{new Date().getFullYear()} {siteAuthor}</p>
 </footer>

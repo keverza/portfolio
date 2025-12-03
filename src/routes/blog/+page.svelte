@@ -1,24 +1,19 @@
 <script>
-	export let data;
-	const { posts } = data;
+	import PostsList from '$lib/components/PostsList.svelte'
+	import Pagination from '$lib/components/Pagination.svelte'
+	import { siteDescription } from '$lib/config'
+
+	let { data } = $props();
 </script>
 
-<h1>All posts</h1>
 
-<nav class="post-list">
-	{#each posts as post}
-		<div class="post-item">
-			<div class="post-info">
-				<time datetime={post.date}>
-					{new Date(post.date).toLocaleDateString('en-GB')}
-				</time>
+<svelte:head>
+	<title>Blog</title>
+	<meta data-key="description" name="description" content={siteDescription}>
+</svelte:head>
 
-				<a href={`/blog/${post.slug}/`}>
-					{post.title}
-				</a>
-			</div>
+<h1>Blog</h1>
 
-			<span class="badge">#{post.tag}</span>
-		</div>
-	{/each}
-</nav>
+<PostsList posts={data.posts} />
+
+<Pagination currentPage={1} totalPosts={data.total} />

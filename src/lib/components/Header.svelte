@@ -1,12 +1,27 @@
 <script>
-  export let title = "Page";
-  export let showDash = true;
+	import { preventDefault } from 'svelte/legacy';
+
+	import MainNav from './MainNav.svelte'
+	import HamburgerMenuButton from './HamburgerMenuButton.svelte'
+	import { siteTitle } from '$lib/config'
+
+	const focusMain = () => {
+		const main = document.querySelector('main');
+		main.focus();
+	}
 </script>
 
-<header class="site-header">
-  <h1>{title}</h1>
-  {#if showDash}
-    <div class="dash">-</div>
-  {/if}
-</header>
 
+<header>
+	<a onclick={preventDefault(focusMain)} class="skip-to-content-link" href="#main">
+		Skip to main content
+	</a>
+	
+	<a href="/" class="site-title">
+		{siteTitle}
+	</a>
+	
+	<HamburgerMenuButton />
+	<MainNav />
+
+</header>
