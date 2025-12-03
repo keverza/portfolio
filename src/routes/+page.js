@@ -1,15 +1,15 @@
-import { error } from '@sveltejs/kit'
+import { error } from '@sveltejs/kit';
 
 export const load = async () => {
 	try {
-		const ReadMeFile = await import('../../README.md')
-		const ReadMe = ReadMeFile.default
-		
+		const ReadMeFile = await import('$posts/README.md');
+		const ReadMe = ReadMeFile.default;
+
 		return {
-			ReadMe
-		}
-	}
-	catch(err) {
+			ReadMe: ReadMeFile.default,
+			metadata: ReadMeFile.metadata || {}
+		};
+	} catch (err) {
 		error(500, err);
 	}
-}
+};

@@ -12,6 +12,7 @@ export default defineConfig({
 			$components: path.resolve('./src/lib/components'),
 			$api: path.resolve('./src/routes/api'),
 			$styles: path.resolve('./src/lib/styles'),
+			$posts: path.resolve('./src/lib/posts'),
 			$icons: path.resolve('./src/lib/icons')
 		}
 	}
