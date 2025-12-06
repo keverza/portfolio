@@ -224,16 +224,4 @@ even if you _do_ choose to keep this starter's default styling, your site might
 not look the same after installing Tailwind. (Headings, for example, just look
 like plain text when using Tailwind, unless classes are applied.)
 
-## Further documentation
 
-I assume at least a little bit of knowledge of SvelteKit and/or similar static
-site generators here, but be sure to read
-[the SvelteKit docs](https://kit.svelte.dev/docs) for more info.
-
-## Contributing
-
-I've tried my best to make sure this starter is up to date with the latest
-SvelteKit, but I'm sure improvements can be made. Feel free to
-[visit the repo](https://github.com/josh-collinsworth/sveltekit-blog-starter)
-and submit a pull request, or
-[contact me directly](https://joshcollinsworth.com/contact).
