@@ -49,6 +49,10 @@
 	<link rel="stylesheet" href="/css/utilities.css" />
 	<link rel="stylesheet" href="/css/code.css" />
 	<link rel="stylesheet" href="/css/prism.css" />
+	<!-- <link rel="stylesheet" href="/css/app.css" /> -->
+	<!-- <link rel="stylesheet" href="/css/picoStyleVariables.css" />
+	<link rel="stylesheet" href="/css/picoColorVariables.css" /> -->
+	<!-- <link rel="stylesheet" href="/css/picoColorOverrideExample.css" /> -->
 	<link
 		rel="alternate"
 		type="application/rss+xml"
@@ -62,7 +66,7 @@
 	actual contents will show up.
 -->
 <div class="layout" class:open={$isMenuOpen}>
-	<Header />
+	<!-- <Header /> -->
 	{#key data.path}
 		<main id="main" tabindex="-1" in:fade|global={transitionIn} out:fade|global={transitionOut}>
 			{@render children?.()}

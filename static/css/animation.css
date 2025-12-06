@@ -1,4 +1,4 @@
-@keyframes slide_in_left {
+/* @keyframes slide_in_left {
 	from {
 		opacity: 0;
 		transform: translateX(-2rem);
@@ -7,4 +7,4 @@
 		opacity: 1;
 		transform: translateX(0);
 	}
-}
+} */

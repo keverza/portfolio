@@ -1,6 +1,8 @@
 <script>
 	import { siteTitle } from '$lib/config';
-
+	import PostsList from '$lib/components/PostsList.svelte';
+	import Pagination from '$lib/components/Pagination.svelte';
+	import { siteDescription } from '$lib/config';
 	let { data } = $props();
 
 	// import ReadMeComponent from '$posts/README.md';
@@ -8,8 +10,10 @@
 
 <svelte:head>
 	<title>{siteTitle}</title>
+
+	<meta data-key="description" name="description" content={siteDescription} />
 </svelte:head>
 
-<!-- This is the README.md file in the root of the repo. It serves double duty as the homepage's content. If you'd rather use your own HTML and/or Svelte, you can delete/modify everything in this file. -->
-<data.ReadMe />
-<!-- <ReadMeComponent /> -->
+<h1>Personal Blog</h1>
+
+<PostsList posts={data.posts} />
