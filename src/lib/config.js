@@ -9,10 +9,10 @@ export const siteTitle = 'Personal blog';
 export const siteDescription = 'Built with the SvelteKit Static Blog Starter';
 export const siteURL = 'iivo.dev';
 export const siteLink = 'iivo.dev';
-export const siteAuthor = '- iivo';
+export const siteAuthor = '- © iivo';
 
 // Controls how many posts are shown per page on the main blog index pages
-export const postsPerPage = 10;
+export const postsPerPage = 20;
 
 // Edit this to alter the main nav menu. (Also used by the footer and mobile nav.)
 export const navItems = [
