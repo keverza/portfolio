@@ -1,5 +1,5 @@
 ---
-title: 'Tips & Tricks'
+title: 'Tips and Tricks'
 date: '2023-01-05'
 updated: '2023-01-05'
 categories:

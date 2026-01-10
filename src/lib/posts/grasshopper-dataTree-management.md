@@ -14,6 +14,5 @@ excerpt: Utility scripts for working with data trees.
 ```python
 def split_by_nth(input_list, n):
     return [input_list[i::n] for i in range(n)]
-
 }
 ```

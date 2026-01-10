@@ -14,7 +14,7 @@ excerpt: Creating parametric origami definitions.
 	import Callout from '$lib/components/Callout.svelte';
 </script>
 
-This will origami scripo.
+This will origami script.
 
 <Callout>
 Origami example.
